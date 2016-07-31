@@ -5,6 +5,7 @@
  */
 package taxiapp.commons;
 
+import taxiapp.coddes.TaxiFleetThread;
 import taxiapp.display.DisplayThread;
 
 /**
@@ -26,6 +27,7 @@ public class TaxiApp {
 
     public static void main(String[] args) {
         Thread t1 =  new Thread( new DisplayThread() );
+        Thread t2  = new Thread( new TaxiFleetThread() );
         t1.start();
         
     }

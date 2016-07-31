@@ -5,7 +5,7 @@
  */
 package taxiapp.display;
 
-//import taxiapp.display.Display;
+import taxiapp.display.Display;
 
 /**
  *
@@ -15,20 +15,32 @@ public class DisplayThread implements Runnable {
     private volatile boolean flag = true;
     @Override
     public void run() {
-        //while(flag)
-        //{    
-            System.out.println("Running Display Thread"); //To change body of generated methods, choose Tools | Templates.
-            Display display = new Display();
-            display.Randomgenerator();
-            display.go();
+        Display display = new Display();
+        display.Randomgenerator();
+        display.go();
+
+        while(flag)
+        {    
+            //System.out.println("Running Display Thread"); //To change body of generated methods, choose Tools | Templates.
+            //mypanel.revalidate();
+            display.go2();
             try{
                 //Pause for 2 seconds
-                //Thread.sleep(2000);
+                Thread.sleep(100);
             } catch(Exception e){
 
             }
 
-        //}
+        }
+        /*javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+            
+        
+        display.go2();
+        }
+    });*/
     }
+                }
     
-}
+
+
